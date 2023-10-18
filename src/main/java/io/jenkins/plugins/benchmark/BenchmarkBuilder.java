@@ -3,6 +3,7 @@ package io.jenkins.plugins.benchmark;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintStream;
+import java.security.SecureRandom;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashSet;
@@ -55,7 +56,7 @@ public class BenchmarkBuilder extends Builder implements SimpleBuildStep {
 		int r;
 		synchronized (ids) {
 			do {
-				r = new Random().nextInt(Integer.MAX_VALUE);
+				r = new SecureRandom().nextInt(Integer.MAX_VALUE);
 			}while(ids.contains(r));
 			ids.add(r);
 		} 
